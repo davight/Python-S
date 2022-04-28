@@ -1,1 +1,1 @@
-# Python-S
+Cvicenia a ucivo z hodin; public repo
