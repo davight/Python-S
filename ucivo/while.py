@@ -34,9 +34,9 @@ tri()
 # Pouzitie "and" alebo "or"
 # Pri "or" staci ak je jedna podmienka True
 def styri():
-    a = "Alex"
+    a = "Lulia"
     b = 20
-    while a == "Peter" or b == 20: # Pokial sa "a" rovna "Peter" ALEBO pokial "b" sa rovna "20" ..opakuj toto....
+    while a == "Alex" or b == 20: # Pokial sa "a" rovna "Alex" ALEBO pokial "b" sa rovna "20" ..opakuj toto....
         print('Stale sa opakujemeee.....')
         b -= 1 # Od hodnoty odoberieme cislo 1. Teda "b" sa uz nadalej nebude rovnat
                #"20", tym padom nebude splnena ziadna podmienka a loop bude ukonceny..
