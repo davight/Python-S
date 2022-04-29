@@ -55,7 +55,7 @@ while True:
                 canvas.create_rectangle(m.x-h,m.y-h,m.x+h,m.y+h,fill=f,outline=f)
             elif t == "hvz":
                 p = "Arial " + str(h*5)
-                canvas.create_text(m.x,m.y,text="*",font=p,fill=f)
+                canvas.create_text(m.x,m.y+h,text="*",font=p,fill=f)
                 
     
     # Vyber farby / hrubky
