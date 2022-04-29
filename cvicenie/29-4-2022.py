@@ -84,7 +84,11 @@ while True:
         elif m.x >= 1 and m.x <= 21 and m.y >= 340 and m.y <= 360:
             t = "hvz"
         elif m.x >= 1 and m.x <= 21 and m.y >= 449 and m.y <= 469:
-            f = "#"+str(random.randint(100000,999999))
+            f = str()
+            for i in range(6):
+                a = random.choice("ABCDEF1234567890")
+                f += a
+            f = "#"+f
         elif m.x >= 1 and m.x <= 21 and m.y >= 479 and m.y <= 499:
             canvas.create_rectangle(40,0,500,500,fill='white',outline='')
 
