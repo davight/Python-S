@@ -5,11 +5,12 @@ canvas = tkinter.Canvas(width=500, height=500)
 canvas.pack()
 h = 12
 f = 'black'
-
+t = 'oval'
 while True:
     # Oddelovacia ciara
     odx = 40
     canvas.create_line(odx-1,0,odx-1,500,fill="black")
+    # Misc
     canvas.create_rectangle(1,449,21,469,outline='black',width=1)
     canvas.create_text(11,459,text="?",font="Arial, 17")
     #pozadie platna
@@ -35,21 +36,31 @@ while True:
     canvas.create_rectangle(1,240,21,260,outline='black')
     canvas.create_oval(1+6,240+6,21-6,260-6,fill='black')
     #Tvar
+    canvas.create_text(15,270,text="Tvar:",font="Arial 8",fill="black")
     canvas.create_rectangle(1,280,21,300,outline='black')
     canvas.create_rectangle(1+6,280+6,21-6,300-6,fill='black')
     canvas.create_rectangle(1,310,21,330,outline="black")
-    canvas.create_oval(1+6,310+6,21-6,330-6,f)
+    canvas.create_oval(1+6,310+6,21-6,330-6,fill="black")
+    canvas.create_rectangle(1,340,21,360,outline="black")
+    canvas.create_text(11,360,text="*",font="Arial 30")
 
     # Vykreslovanie 
     def tahanie(m):
         global odx
         vh = odx+h/2+3
         if m.x > vh:
-            canvas.create_oval(m.x-h,m.y-h,m.x+h,m.y+h,fill=f,outline=f)
+            if t == "oval":
+                canvas.create_oval(m.x-h,m.y-h,m.x+h,m.y+h,fill=f,outline=f)
+            elif t == "rect":
+                canvas.create_rectangle(m.x-h,m.y-h,m.x+h,m.y+h,fill=f,outline=f)
+            elif t == "hvz":
+                p = "Arial " + str(h*5)
+                canvas.create_text(m.x,m.y,text="*",font=p,fill=f)
+                
     
     # Vyber farby / hrubky
     def klik(m):
-        global f,h
+        global f,h,t
         if m.x >= 1 and m.x <= 21 and m.y >= 20 and m.y <= 40:
             f = 'red'
         elif m.x >= 1 and m.x <= 21 and m.y >= 50 and m.y <= 70:
@@ -66,19 +77,24 @@ while True:
             h = 12
         elif m.x >= 1 and m.x <= 21 and m.y >= 240 and m.y <= 260:
             h = 8
+        elif m.x >= 1 and m.x <= 21 and m.y >= 280 and m.y <= 300:
+            t = "rect"
+        elif m.x >= 1 and m.x <= 21 and m.y >= 310 and m.y <= 330:
+            t = "oval"
+        elif m.x >= 1 and m.x <= 21 and m.y >= 340 and m.y <= 360:
+            t = "hvz"
         elif m.x >= 1 and m.x <= 21 and m.y >= 449 and m.y <= 469:
             f = "#"+str(random.randint(100000,999999))
         elif m.x >= 1 and m.x <= 21 and m.y >= 479 and m.y <= 499:
             canvas.create_rectangle(40,0,500,500,fill='white',outline='')
 
-        # Kliknutie farby
-        canvas.create_rectangle(1,180,21,200,outline='black')
+        # Update
         canvas.create_oval(1+2,180+2,21-2,200-2,fill=f)
-        canvas.create_rectangle(1,210,21,230,outline='black')
         canvas.create_oval(1+4,210+4,21-4,230-4,fill=f)
-        canvas.create_rectangle(1,240,21,260,outline='black')
         canvas.create_oval(1+6,240+6,21-6,260-6,fill=f)
-
+        canvas.create_text(11,360,text="*",font="Arial 30",fill=f)
+        canvas.create_oval(1+6,310+6,21-6,330-6,fill=f)
+        canvas.create_rectangle(1+6,280+6,21-6,300-6,fill=f)
     
     canvas.bind("<B1-Motion>",tahanie)
     canvas.bind("<Button-1>",klik)
