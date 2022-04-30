@@ -42,7 +42,7 @@ def tri():
     
     print(type(a)) # Mozeme si to oveirt prikazom "type()", ktory nam returtne o aky typ variability ide
     
-    int(a) # Pre zmenu typu danej variability do typu integer pouzijeme prikaz "int()"
+    a = int(a) # Pre zmenu typu danej variability do typu integer pouzijeme prikaz "int()"
 
     if a > 10: # Vdaka tomuto je tato variabilita typu integer a ide porovnovat, odcitovat, scitovat, nasobit ...................................
         print('Je to vacsie!')
