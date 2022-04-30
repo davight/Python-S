@@ -1,3 +1,7 @@
+#+------------------------------+
+#Zadanie: Urobit kresliace platno, kde sa da nastavit farba, tvar stetca a velkost
+#+------------------------------+
+
 import tkinter
 import random
 
