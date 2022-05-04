@@ -1,3 +1,6 @@
+import tkinter
+import random
+
 def prvecvicenie():
     import sys
 
@@ -102,8 +105,7 @@ def stvrtecvicenie():
     import sys
 
     udajdvojky = udajjednotky = udajpatdesiat = udajdvadsat = udajdesat = udajpat = b = int()
-    print('Vitajte v Bankomate, mozete su vybrat hodnotu')
-    a = input('Zadajte hodnotu, ktoru si prajete vybrat:\n')
+    a = input('Zadajte vasu vyplatu pre jej vypocet v bankovkach')
     
     try:
         a = int(a)
