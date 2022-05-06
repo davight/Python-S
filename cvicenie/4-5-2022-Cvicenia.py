@@ -92,12 +92,9 @@ def tretiecvicenie():
     while c != 5000:
         x = random.randint(1,600)
         y = random.randint(1,600)
-        if x <= 100 and y <= 100 or x <= 100 and y >= 500 or x >= 500 and y <= 100 or x >= 500 and y >= 500:
-            c = c
-        else:
+        if not (x <= 100 and y <= 100 or x <= 100 and y >= 500 or x >= 500 and y <= 100 or x >= 500 and y >= 500):
             canvas.create_oval(x-10,y-10,x+10,y+10,fill='red')
             c += 1
-    print(c)
     tkinter.mainloop()
 tretiecvicenie()
 
