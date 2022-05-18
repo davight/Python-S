@@ -12,3 +12,6 @@ def main():
     for x in range(len(slovo)):
         print(slovo[:x+1])
 main()
+
+# Opak cvicenia z: Python-S/cvicenie/18-5-2022.py
+# https://github.com/analnyroztahovac/Python-S/edit/main/cvicenie/18-5-2022.py
