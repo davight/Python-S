@@ -11,5 +11,5 @@ def menicko2(meno):
         print(meno[:len(meno)-i])
 menicko2("Peter")
 
-# Opak ku cviceniu:
-[a relative link](13-5-2022.py)
+# Opak cvicenia z: Python-S/cvicenie/13-5-2022.py
+# https://github.com/analnyroztahovac/Python-S/blob/main/cvicenie/13-5-2022.py
