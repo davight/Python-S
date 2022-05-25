@@ -31,4 +31,3 @@ def cvicenie15(slovo):
         count -= 1
         print(" "*count,slovo[-cislo-1:])
 cvicenie15("Python")
-    #for i in range(len(slovo)):
