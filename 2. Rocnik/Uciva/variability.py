@@ -8,13 +8,17 @@
 
 # Rozne typy variabilit sa daju rozne spajat
 
-# -> Spajanie dvoch a viacerych stringov stringov
+# -> Spajanie alebo nasobenie dvoch a viacerych stringov
 def jeden():
     pozdrav = "Ahoj"
     meno = "Mirek"
     
     spojenie = pozdrav + meno # Spojime "pozdrav" a "meno" do jedneho stringu a ulozime vysledok do variability "spojenie"
     print(spojenie) # Printne sa nam "AhojMirek"
+    
+    nasobenie = (pozdrav*2)+(meno*3)
+    print(nasobenie) # Printne sa nam "AhojAhojMirekMirekMirek"
+    
 jeden()
 
 # -> Spajanie (scitovanie, odcitovanie, nasobenie, delenie) dvoch a viacerych integerov (pri floatoch postupujeme rovnako)
