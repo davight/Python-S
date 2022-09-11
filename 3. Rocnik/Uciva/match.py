@@ -44,5 +44,5 @@ def druha_moznost(pocasie):
         case "Veterno":
             print("Vezmi mikinu !")
 
-#TODO: Dopisat: performance, default case, pros & cons
+#TODO: Dopisat: performance, default case, pros & cons, multiple cases
 
