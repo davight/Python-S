@@ -4,6 +4,14 @@
 # cisel.
 
 import random
+
+def je_to_cislo(znak):
+    try:
+        int(znak)
+        return False
+    except ValueError:
+        return True
+
 while True:
     
     vstup_str = input("Zadaj: NAJMENSIE CISLO | NAJVACSIE CISLO | POCET VYBEROV (oddelene medzerami) \n")
@@ -11,6 +19,10 @@ while True:
     
     if len(vstup_list) != 3:
         print("Nezadal si tri cisla!")
+        break
+    
+    if je_to_cislo(vstup_list[0]) or je_to_cislo(vstup_list[1]) or je_to_cislo(vstup_list[2]):
+        print(f"Nezadal si platne cisla!\n Zadane cisla: {vstup_list}")
         break
     
     prve_cislo,druhe_cislo,tretie_cislo = int(vstup_list[0]), int(vstup_list[1]), int(vstup_list[2])
