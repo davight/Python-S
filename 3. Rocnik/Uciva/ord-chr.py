@@ -30,6 +30,7 @@ def chr_funkcia():
     # Pritneme dany charakter cize
     print('Charakter pod cislom {} predstavuje - {}'.format(ciselko,charakter))
 
+chr_funkcia()
 
 # ++> Funkcia ord()
 #   Je presny opak funkcie chr(), cize na zaklade zadaneho charakteru nam
