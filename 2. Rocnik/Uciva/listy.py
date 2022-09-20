@@ -65,6 +65,7 @@ cvicenie2()
 
 # -> Odstranovanie z listu
 def cvicenie3():
+    import random
 
     list = [2,"Hruska","Marek","Aplikacny","Dejepis"] # List s vecami, ktore mi aktualne napadli...
     # Aktualne nas list vyzera takto:
