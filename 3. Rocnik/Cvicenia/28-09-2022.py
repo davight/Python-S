@@ -5,10 +5,10 @@ def prve_cvicenie():
     slovo = input("Zadaj lubovolne slovo: ")
     
     # Slovo premenime na list a do kazdej "medzery" vlozime "X"
-    slovo_list = "X".join(list(slovo))
+    nove_slovo = "X".join(list(slovo))
 
     # Printneme
-    print(slovo_list)
+    print("Nove slovo je: {}".format(nove_slovo))
 
 #prve_cvicenie()
 
@@ -27,7 +27,7 @@ def druhe_cvicenie():
         nove_slovo += pismeno*2
     
     # Printneme
-    print(nove_slovo)
+    print("Nove slovo je: {}".format(nove_slovo))
 
 #druhe_cvicenie()
 
@@ -47,7 +47,7 @@ def tretie_cvicenie():
         nove_slovo += slovo[value]*(value+1)
     
     # Printneme
-    print(nove_slovo)
+    print("Nove slovo je: {}".format(nove_slovo))
 
 tretie_cvicenie()
 
@@ -67,6 +67,32 @@ def stvrte_cvicenie():
     # List premenime na string
     nove_slovo = "".join(nove_slovo_list)
 
-    print(nove_slovo)
+    print("Nove slovo je: {}".format(nove_slovo))
 
 stvrte_cvicenie()
+
+def piate_cvicenie():
+
+    # Zadanie: Zoberte nejaku vetu, rozdelteju ju na x casti po troch pismenach
+    # a tie otocte.
+    # Priklad: JETOZAKODOVANYTEXT -> jotazedokavotyntxe
+    
+    veta = input("Zadaj nejaku vetu: \n")
+    veta_spojenie = "".join(veta.split(" "))
+    
+    # Prazdny list pre novu vetu
+    nova_veta = []
+
+    # Loopneme cez kazde tretie pismenko
+    for pismenko in range(0, len(veta_spojenie), 3):
+        
+        # Ulozime si ich
+        tri_pismena = veta_spojenie[pismenko:pismenko+3]
+        # A pridame do novej vetz
+        nova_veta.append(tri_pismena[::-1])
+
+    # Printneme novu, upravenu vetu
+    nova_veta = "".join(nova_veta)
+    print("Zakodovana veta je: {}".format(nova_veta))
+
+piate_cvicenie()    
