@@ -1,3 +1,16 @@
+# Cely tento subor (kod, vsetky funkcie) predstavuje jedno zadanie.
+
+# Zadanie: 
+#  Na zaklade vlozeneho rodneho cisla, overte jeho platnost
+#  teda ci obsahuje "/" na spravnom mieste, ci lava cast obsahuje
+#  6 cisel a prava 4 cisla.
+#  Nasledne na zaklade mesiaca urcite ci sa jedna o muza alebo zenu
+#  Muz ma na mieste mesiaca 0 alebo 1
+#  Zena ma na mieste mesiaca 5 alebo 6, lebo pri ich mesiacoch sa
+#  pripocitava cislo 50.
+
+
+# Integer checker
 def je_int(str):
     try:
         int(str)
@@ -5,12 +18,14 @@ def je_int(str):
     except ValueError:
         return False
 
+# Prevod rokov (98 -> 1998, 03 -> 2003)
 def rok_kalkulacia(str):
     cislo = int(str)
     if cislo > 22:
         return "19"+str
     return "20"+str
 
+# Prevod ciselnych mesiacov na nazvy
 def mesiac_kalkulacia(str_mesiac):
     mesiace = {
         "01": "Januar",
@@ -28,7 +43,7 @@ def mesiac_kalkulacia(str_mesiac):
     }
     return mesiace[str_mesiac]
 
-
+# Main kod
 def cvicenie_jeden():
     while True:
         str = input("Zadaj svoje rodne cislo:\n")
