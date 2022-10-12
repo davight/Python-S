@@ -73,5 +73,3 @@ def tretie_cvicenie():
     print(f"V slove '{slovo1}' sa samohlaska '{pismenko}' nachadza {pocet1}krat! \nV slove '{slovo2}' sa samohlaska '{pismenko}' nachadza {pocet2}krat!")
 
 tretie_cvicenie()
-    
-
