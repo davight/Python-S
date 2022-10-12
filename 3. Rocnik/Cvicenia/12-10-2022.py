@@ -53,3 +53,33 @@ def druhe_cvicenie():
         
         # Pripocitame k hodnote
         count += 1
+druhe_cvicenie()
+
+def tretie_cvicenie():
+
+    # Zadanie:
+    # (subor ktory obsahuje mena zaikov a velda nich ich znamky)
+
+    subor = open('znamky.txt')
+
+    # List riadkov v subore
+    list_ziakov = subor.read().split("\n")
+
+    for rad in list_ziakov:
+
+        # Rozdelime rad podla medzery, a priradime potrebne info do var
+        info_list = rad.split()
+        meno = info_list[0]
+        znamky_list, znamky = list(info_list[1]), 0
+
+        # Loopneme cez znamky
+        for str in znamky_list:
+
+            # Pridame k celkovemu poctu znamok
+            znamky += int(str)
+
+        priemer = znamky / len(znamky_list)
+
+        print('Ziak {} ma priemer znamok {}'.format(meno,priemer))
+
+tretie_cvicenie()
