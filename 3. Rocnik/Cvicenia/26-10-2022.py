@@ -97,24 +97,20 @@ def piate_cvicenie():
     # A my ich chceme vlastne skombinovat.
 
     # Otvorime subory a ich kontent vlozime do listu
-    cisla = open('cisla.txt').read().split("\n")
+    cisla = open('cisla.txt')
 
-    pismena = open('pismena.txt').read().split("\n")
+    pismena = open('pismena.txt')
 
     # Subor, do ktoreho budeme vkladat vysledok
-    skombinovane = open('skombinovane2.txt','a')
+    skombinovane = open('skombinovane2.txt','w')
 
     # Loopneme cez kazdu hodnotu v liste
-    for item in range(max([len(cisla), len(pismena)])):
+    cislaRiadok, pismenaRiadok = cisla.readline(), pismena.readline()
+    while cislaRiadok != "" or pismenaRiadok != "":
         
-        # Zapiseme ju do skombinovacieho suboru
-        try:
-            skombinovane.write(cisla[item]+"\n")
-        except:
-            pass
-        try:
-            skombinovane.write(pismena[item]+"\n")
-        except:
-            pass
+        skombinovane.write(cislaRiadok)
+        skombinovane.write(pismenaRiadok)
+
+        cislaRiadok, pismenaRiadok = cisla.readline(), pismena.readline()
 
 #piate_cvicenie()
