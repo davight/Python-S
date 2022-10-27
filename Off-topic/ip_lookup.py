@@ -4,10 +4,6 @@ import requests
 # Pomocou socket lib mozeme "overovat" platnost IPciek
 import socket
 
-# Pomocou sys lib ukoncime program
-import sys
-
-
 # +++ Funkcia pre IP lookup
 def get_location(adresa):
     
@@ -16,6 +12,11 @@ def get_location(adresa):
     
     # Pomocou web api ziskame info k danej ip adrese a premenime na json
     odpoved = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
+    
+    if odpoved.get("error") != None:
+
+        # Vyzera to tak, ze posielas requesty pricasto
+        return print("Nespamuj to -> https://ipapi.co/ratelimited/")
     
     # Zadefinujeme dict s odpovedami z requestu
     location_data_dict = {
@@ -39,8 +40,7 @@ def get_location(adresa):
         
         print(kluc,"=",value)
     
-    sys.exit()
-
+    return
 
 # +++ Funkcia pre overenie platnosti IP adresy
 def valid_ip_otaznik(ciselko):
