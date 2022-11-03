@@ -33,7 +33,7 @@ def prveCvicenie():
     
     prveCislo, druheCislo = int(input("Zadaj prve cislo: ")), int(input("Zadaj druhe cislo: "))
     
-    return (prveCislo - ((prveCislo // druheCislo) * druheCislo))
+    return prveCislo - ((prveCislo // druheCislo) * druheCislo)
 
 print(prveCvicenie())
 

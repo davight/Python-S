@@ -13,7 +13,7 @@ def get_location(adresa):
     # Pomocou web api ziskame info k danej ip adrese a premenime na json
     odpoved = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
     
-    if odpoved.get("error") != None:
+    if odpoved.get("error") is not None:
 
         # Vyzera to tak, ze posielas requesty pricasto
         return print("Nespamuj to -> https://ipapi.co/ratelimited/")

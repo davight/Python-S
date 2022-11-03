@@ -21,7 +21,7 @@ def druhe_cvicenie():
 
     # Otvorenie suborov
     starySubor = open('data.txt')
-    novySubor = open('nove_data.txt','a')
+    novySubor = open('nove_data.txt', 'a')
 
     # Loopneme cez kazdy riadok v starom subore
     riadok = starySubor.readline()
