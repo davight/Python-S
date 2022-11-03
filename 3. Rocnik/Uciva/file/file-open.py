@@ -1,4 +1,4 @@
-# Spravovanie suboro v pythone je nuda
+# Spravovanie suborov v pythone je nuda
 # preto ukazem len zakladne funkcie pri
 # spravovani roznych suborov cez py.
 
@@ -91,7 +91,8 @@ def priklad_tri():
     # Otvorime subor na citanie
     subor = open(cesticka)
 
-    # Ideme vypisat vsetky riadky ( riadky sa vypisu ako list ( kazdy riadok predstavuje jeden item v liste ) vratane newline tagu (\n) )
+    # Ideme vypisat vsetky riadky ( riadky sa vypisu ako list ( kazdy riadok predstavuje jeden item v liste ) vratane
+    # newline tagu (\n) )
     print(f'\nVsetky riadky: \n{subor.readlines()}')
 
     # POZOR PLATI TO, CO HORE !
@@ -148,7 +149,7 @@ def priklad_tri():
             # Druhy sposob je built-in python funkcia replace()
             # ktora v stringu nahradi string inym stringom
             # v nasom pripade nahradime "\n" s ""
-            riadok = subor.readline().replace("\n","")
+            riadok = subor.readline().replace("\n", "")
             print(riadok)      
     
     druhy_sposob()          
