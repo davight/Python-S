@@ -1,5 +1,5 @@
 # Cvicenia z labakov.
-# Den - 27.10.2022 ; Skupina - I
+# Den - 27.10.2022 ; Skupina - II
 
 # +++> Info:
 # 
