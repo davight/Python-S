@@ -1,85 +1,86 @@
-# Funkcia maxCislo pre returnutie najvacsieho cisla
-def maxCislo(cisla):
+# Global variabilita
+teploty = []
 
-    # Check ci sa jedna o list
-    if type(cisla) != type([]):
-        return "Nie je list!"
+# Main funkcia
+def main():
 
-    # Zakladna hodnota
-    count = 0
-    for cislo in cisla:
+    # Main funkcia pre zadavanie teploty, ktoru
+    # opakovane vyuzijeme v dalsich funkciach.
+    global teploty
+    vstup, count = "iHateItHere", 1
 
-        try:
-            if cislo > count:
-                count = cislo
-        except:
-            return f"Hodnota {cislo} nie je cislo!"
-    
-    return count
+    print("Zadaj teplotu, ktoru chces pridat do zoznamu teplot!\nAk chces ukoncit zadavanie zadaj STOP.")
+    while str(vstup).upper() != "STOP":
 
-def minCislo(cisla):
+        vstup = input(f"Den {count}. -> Teplota: ")
+        count += 1
 
-    # Check ci sa jedna o list
-    if type(cisla) != type([]):
-        return "Nie je list!"
+        if vstup.upper() != "STOP":
 
-    # Zakladna hodnota
-    count = maxCislo(cisla)
-    for cislo in cisla:
+            try:
+                vstup = int(vstup)
+                teploty.append(vstup)
 
-        try:
-            if cislo < count:
-                count = cislo
-        except:
-            return f"Hodnota {cislo} nie je cislo!"
-    
-    return count
+            except ValueError:
+                return print(f"Neplatne cislo / STOP prikaz -> \'{vstup}\'!")
 
-def priemerCislo(cisla):
-
-    # Check ci sa jedna o list
-    if type(cisla) != type([]):
-        return "Nie je list!"
-
-    # Zakladne hodnoty
-    dlzka = len(cisla)
-    count = 0
-
-    for cislo in cisla:
-
-        try:
-            count += cislo
-        except:
-            return f"Hodnota {cislo} nie je cislo!"
-    
-    return count/dlzka
-
+main()
 
 def prveCvicenie():
 
-    # Zadanie:
+    # ++ Zadanie:
     #  Vytvor list, ktory obsahuje teploty 7 dni.
     #  Z teplot vypis priemernu teplotu za tyzden,
     #  najmensiu teplotu za tyzden,
     #  najvacsiu teplotu za tyzden.
-    # Obmedzenia:
-    #  Funkcie na returnutie max, a min teploty si
-    #  musis napisat sam.
-    
-    # List teplot
-    teploty = [1,56,22,53,23,"a",1,5]
 
-    max = maxCislo(teploty)
-    min = minCislo(teploty)
-    priemer = priemerCislo(teploty)
-    
-    if type(max) == type(min) == type(priemer) == type(int()):
-        
-        print(f"Maximalna teplota za tyzden bola {max}")
-        print(f"Minimalna teplota za tyzden bola {min}")
-        print(f"Priemerna teplota za tyzden bola {priemer}")
-        return
-    
-    print(f"Nejaka hodnota v liste {teploty} nie je cislo!")
+    # ++ Obmedzenia:
+    #  Funkcie na returnutie maximalnej, a minimalnej
+    #   teploty si musis napisat sam :(
+
+    # List teplot, input
+    global teploty
+
+    # Funckia pre returnutie najvacsej hodnoty z listu
+    def maxCislo(cisla):
+
+        count = cisla[0]
+
+        for i in cisla:
+            if i > count:
+                count = i
+
+        return count
+
+    # Funckia pre returnutie najmensej hodnoty z listu
+    def minCislo(cisla):
+
+        count = maxCislo(cisla)
+
+        for i in cisla:
+            if i < count:
+                count = i
+
+        return count
+
+    # Funckia pre returnutie priemernej hodnoty z listu
+    def priemerCislo(cisla):
+
+        sucetHodnot, pocetHodnot = 0, 0
+
+        for i, cislo in enumerate(cisla):
+            sucetHodnot += cislo
+            pocetHodnot = i + 1
+
+        return sucetHodnot/pocetHodnot
+
+    teplotyFormat = '°C, '.join(map(str, teploty))
+    maxTeplota, minTeplota, priemerTeplota = maxCislo(teploty), minCislo(teploty), round(priemerCislo(teploty))
+    maxTeplotaDen, minTeplotaDen = teploty.index(maxTeplota) + 1, teploty.index(minTeplota) + 1
+
+    print(f"\nZ tyzdna so zadanymi teplotami: {teplotyFormat}°C boli namerane tieto hodnoty:")
+    print(f"Najvacsia teplota: {maxTeplota}°C, namerana v {maxTeplotaDen}. den")
+    print(f"Najmensia teplota: {minTeplota}°C, namerana v {minTeplotaDen}. den")
+    print(f"Priemerna teplota: {priemerTeplota}°C\n")
 
 prveCvicenie()
