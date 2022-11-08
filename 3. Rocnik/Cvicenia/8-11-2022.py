@@ -38,7 +38,7 @@ def prveCvicenie():
     #  Funkcie na returnutie maximalnej, a minimalnej
     #   teploty si musis napisat sam :(
 
-    # List teplot, input
+    # List teplot
     global teploty
 
     # Funckia pre returnutie najvacsej hodnoty z listu
@@ -83,4 +83,27 @@ def prveCvicenie():
     print(f"Najmensia teplota: {minTeplota}°C, namerana v {minTeplotaDen}. den")
     print(f"Priemerna teplota: {priemerTeplota}°C\n")
 
-prveCvicenie()
+#prveCvicenie()
+
+def druheCvicenie():
+
+    # ++ Zadanie:
+    #  Vytvor list, ktory obsahuje teploty 7 dni.
+    #  Z teplot vypis priemernu teplotu za tyzden,
+    #  najmensiu teplotu za tyzden,
+    #  najvacsiu teplotu za tyzden.
+    #  Mozes pouzit built-in funkcie ako sum, len, max, min ...
+
+    # List teplot
+    global teploty
+
+    teplotyFormat = '°C, '.join(map(str, teploty))
+    maxTeplota, minTeplota, priemerTeplota = max(teploty), min(teploty), round( max(teploty) / len(teploty) )
+    maxTeplotaDen, minTeplotaDen = teploty.index(maxTeplota) + 1, teploty.index(minTeplota) + 1
+
+    print(f"\nZ tyzdna so zadanymi teplotami: {teplotyFormat}°C boli namerane tieto hodnoty:")
+    print(f"Najvacsia teplota: {maxTeplota}°C, namerana v {maxTeplotaDen}. den")
+    print(f"Najmensia teplota: {minTeplota}°C, namerana v {minTeplotaDen}. den")
+    print(f"Priemerna teplota: {priemerTeplota}°C\n")
+
+#druheCvicenie()
