@@ -107,3 +107,22 @@ def druheCvicenie():
     print(f"Priemerna teplota: {priemerTeplota}°C\n")
 
 #druheCvicenie()
+
+def tretieCvicenie():
+    
+    # ++ Zadanie:
+    #  Zo zoznamu teplot sprav listy
+    #  s parnymi a neparnymi cislami
+
+    global teploty
+
+    # Variability
+    parneTeploty = [ i for i in teploty if i%2 == 0]
+    neparneTeploty = [ i for i in teploty if i%2 != 0 ]
+    teplotyFormat = '°C, '.join( map(str, teploty) )
+
+    print(f"\nZ tyzdna so zadanymi teplotami: {teplotyFormat}°C boli namerane tieto hodnoty:")
+    print(f"Parne teploty: {}°C".format( '°C, '.join( map(str, parneTeploty) ) ) )
+    print(f"Neparne teploty: {}°C".format( '°C, '.join( map(str, neparneTeploty) ) ) )
+
+#tretieCvicenie()
