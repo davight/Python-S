@@ -1,8 +1,10 @@
 # funkcie:
-# count, find, sort, reverse
+# sort, reverse
+# Global const
+zakladnyList = [1, 2, 3, 4, 'a', 'b', 1, 'c', 2, "Alex", "Filip", 1, "Marko"]
+print(f"Zakladny list: {zakladnyList}\n")
 
-
-# ++> Funkcie append(), extend(), insert()
+# +++> Funkcie append(), extend(), insert()
 #  Vsetky tieto tri funkcia maju nieco
 #  spolocne a to je rozsirovat list.
 
@@ -26,18 +28,16 @@
 #  ale hlavny rozdiel je v tom, ze v tejto funkcii
 #  musime specifikovat, na ktore miesto item chceme
 #  vlozit. 
-#  @ Format pisania: list.append([index], [item])
-
+#  @ Format pisania: list.insert([index], [item])
 
 def prikladJeden():
 
-    zakladnyList = [1, 2, 3, 4, 'a', 'b', 'c', "Alex", "Filip", "Marko"]
-    print(f"Zakladny list: {zakladnyList}\n")
+    global zakladnyList
 
     # @@@ Vkladanie do listu pomocou append()
 
     prveVlozenie = zakladnyList.copy()
-    #prveVlozenie.append(1)
+    prveVlozenie.append(1)
     print(f"Prva uprava pomocou funkcie append: {prveVlozenie}")
 
     druheVlozenie = zakladnyList.copy()
@@ -80,7 +80,11 @@ def prikladJeden():
     deviateVlozenie.insert(-2, "Macicky")
     print(f"Tretia uprava pomocou funkcie insert: {deviateVlozenie}")
 
-#prikladJeden()
+prikladJeden()
+
+# +++> Funkcie remove(), pop(), clear()
+#  Vsetky tieto tri funkcia maju nieco spolocne
+#  a to je odstranovat nieco (vsetko) z listu.
 
 # ++> Funkcia remove()
 #  Odstrani prvy vyskyt itemu z listu,
@@ -98,12 +102,11 @@ def prikladJeden():
 
 # ++> Funkcia clear()
 #  Vycisti list, bude prazdny, empty...
-#  Format pisania je: list.clear()
+#  @ Format pisania: list.clear()
 
 def prikladDva():
     
-    zakladnyList = [1, 2, 3, 4, 'q', 'r']
-    print(f"Zakladny list: {zakladnyList}\n")
+    global zakladnyList
 
     # @@@ Mazanie pomocou remove()
 
@@ -112,7 +115,7 @@ def prikladDva():
     print(f"Prva uprava pomocou funkcie remove: {prveMazanie}")
 
     druheMazanie = zakladnyList.copy()
-    druheMazanie.remove('r')
+    druheMazanie.remove('b')
     print(f"Druha uprava pomocou funkcie remove: {druheMazanie}")
     
     # @@@ Mazanie pomocou pop()
@@ -132,3 +135,47 @@ def prikladDva():
     print(f"Prva uprava pomocou funckei clear: {piateMazanie}")
 
 prikladDva()
+
+# +++> Funkcie count(), index()
+#  Tieto dve funkcie maju spolocne to,
+#  ze hladaju / pocitaju nieco v liste.
+
+# ++> Funkcia count()
+#  Spocita vyskyt zadaneho itemu v liste.
+#  @ Format pisania: list.count([item])
+
+# ++> Funkcia index()
+#  Vyhlada a returne prvu poziciu zadaneho
+#  itemu v liste. Je mozne specifikovat
+#  aj start a end position, znamenajuc,
+#  ze bude hladat od start position po
+#  end position (exkluzive). Pokial sa
+#  dany item v liste nenachdza funkcia
+#  returne -1 poziciu.
+#  @ Format pisania: list.index([item], start, end)
+
+def prikladTri():
+
+    global zakladnyList
+
+    # @@@ Pocitanie vyskytov pomocou count()
+
+    prvePocitanie = zakladnyList.count("Marko")
+    print(f"Prve pocitanie pomocou funkcie count: {prvePocitanie}")
+
+    druhePocitanie = zakladnyList.count(22667121)
+    print(f"Druhe pocitanie pomocou funkcie count: {druhePocitanie}")
+
+    # @@@ Hladanie pomocou funkcie pomocou find()
+
+    prveHladanie = zakladnyList.index('a')
+    print(f"Prve hladanie indexu pomocou funkcie index: {prveHladanie}")
+
+    druheHladanie = zakladnyList.index(1, 3)
+    print(f"Druhe hladanie indexu pomocou funkcie index: {druheHladanie}")
+
+    tretieHladanie = zakladnyList.index(1, 3, -2)
+    print(f"Tretie hladanie indexu pomocou funkcie index: {tretieHladanie}")
+
+prikladTri()
+
