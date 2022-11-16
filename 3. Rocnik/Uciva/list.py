@@ -1,5 +1,3 @@
-# funkcie:
-# sort, reverse
 # Global const
 zakladnyList = [1, 2, 3, 4, 'a', 'b', 1, 'c', 2, "Alex", "Filip", 1, "Marko"]
 print(f"Zakladny list: {zakladnyList}\n")
@@ -179,3 +177,49 @@ def prikladTri():
 
 prikladTri()
 
+# +++> Funkcie reverse(), sort()
+
+# ++> Funkcia reverse()
+#  Returne otoceny list.
+#  @ Format pisania: list.reverse()
+
+# ++> Funkcia sort()
+#  Zoradi list. Pokial list obsahuje
+#  iba cisla zoradi ich vzostupne.
+#  ( Od najmensieho po najvacsie )
+#  Pokial list obsahuje stringy zoradi
+#  ich abecedne podla ich prvych pismen.
+#  Ak ich chceme zoradit ale opacne,
+#  teda zostupne a opak abecedneho mozeme
+#  pouzit "reverse=True" argument priamo
+#  v sort funkcii.
+#  @ Format pisania: list.sort(reverse=True)
+
+def prikladStyri():
+
+    global zakladnyList
+
+    # @@@ Reversnutie listu pomocou reverse()
+
+    zakladnyList.reverse()
+    print(f"Prve otocenie listu: {zakladnyList}")
+
+    # @@@ Sortovanie listu pomocou sort()
+
+    listCisel = [1, 2, 54, 53, 10, 1423, 1998, 203]
+
+    listCisel.sort()
+    print(f"Prve zoradanie listu cisel: {listCisel}")
+
+    listCisel.sort( reverse=True )
+    print(f"Druhe zoradenie listu cisel: {listCisel}")
+
+    listStringov = ['A', 'B', "Alex", "Mario", "Marko", "Jakub", "Filip"]
+
+    listStringov.sort()
+    print(f"Prve zoradenie listu stringov: {listStringov}")
+
+    listStringov.sort( reverse=True )
+    print(f"Druhe zoradenie listu stringov: {listStringov}")
+
+prikladStyri()
