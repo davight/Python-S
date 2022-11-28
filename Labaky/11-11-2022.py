@@ -1,5 +1,5 @@
 # Cvicenia z labakov.
-# Den - 27.10.2022 ; Skupina - II
+# Den - 11.11.2022 ; Skupina - II
 
 # +++> Info:
 #
@@ -45,7 +45,6 @@ def druheCvicenie():
 
     while True:
 
-
         cmdArgs = input("> ").split()
         while len(cmdArgs) < 1:
             cmdArgs = input("> ").split()
@@ -79,11 +78,56 @@ def druheCvicenie():
                 except IndexError as error:
                     print(f"++ Few arguments provided. \n Error: {error}")
 
+            case "nasobenie" | "*":
+                try:
+                    numbers = [ int(i) for i in args ]
+                    cinitel = numbers[0]
+                    for nasobok in numbers[1:]:
+                        cinitel *= nasobok
+                    print( cinitel )
+                except ValueError as error:
+                    print(f"++ Expected integers. \n Error: {error}")
+                except IndexError as error:
+                    print(f"++ Few arguments provided. \n Error: {error}")
+
+            case "delenie" | "/":
+                try:
+                    numbers = [ int(i) for i in args ]
+                    delenec = numbers[0]
+                    for delitel in numbers[1:]:
+                        delenec /= delitel
+                    print( round(delenec, 2) )
+                except ValueError as error:
+                    print(f"++ Expected integers. \n Error: {error}")
+                except IndexError as error:
+                    print(f"++ Few arguments provided. \n Error: {error}")
+                except ZeroDivisionError as error:
+                    print(f"++ Division by zero is not possible. \n Error: {error}")
+
+            case "faktorial" | "!":
+                if len(args) != 1:
+                    print(f"Invalid number of arguments provided.\n Required: 1")
+                else:
+                    try:
+                        cislo = odpoved = int(args[0])
+                        for i in range(1, cislo-1):
+                            odpoved *= cislo - i
+                        print(odpoved)
+                    except ValueError as error:
+                        print(f"++ Expected integer. \n Error: {error}")
+
+            case "stop":
+                return
+
             case "help" | 'h' | "?":
                 print("++ Currently available commands: \n"
                       "print [value(s)] \n"
                       "plus [int], ..., \n"
                       "minus [int], ..., \n"
+                      "nasobenie [int], ..., \n"
+                      "delenie [int], ... \n"
+                      "factorial [int]\n"
+                      "stop\n"
                       "help")
 
             case _:
