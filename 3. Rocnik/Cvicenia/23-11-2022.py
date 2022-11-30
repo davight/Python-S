@@ -1,7 +1,9 @@
 def prveCvicenie():
 
     # Zadanie:
-    #  Zistite ci je slovo anagram
+    #  Zistite ci su zadane dve slova anagram.
+    #  Teda ci sa slova skladaju z toho druheho
+    #  navzajom, napriklad: obb = bob; ahoj = hoja
 
     slova = input("Zadaj dve slova, oddelene medzerou: ")
 
@@ -21,15 +23,16 @@ def prveCvicenie():
 def druheCvicenie():
 
     # Zadanie:
-    #  Zisti ci sa nejaky prvok v tuple opakuje
-    #  ak ano tak kolko a vypis ich
+    #  Zisti ci sa nejake prvky v lubovolnom tuple opakuju
+    #  ak ano tak ake sa opakuju, kolko je tam tych co sa
+    #  opakuju kolkokrat sa opakuju a vypis ich.
 
-    t = (1,2,3,4,4,5,23,3,5,4)
+    t = (1, 2, 3, 4, 4, 5, 23, 3, 5, 4)
     
-    duplicates = []
-    count = 0
-    
+    duplicates, count = [], 0
+
     for item in t:
+
         if t.count(item) > 1:
             # Opakuje sa
             if item not in duplicates:
@@ -38,7 +41,9 @@ def druheCvicenie():
                 count += 1
     
     print("Celkom bolo v tuple {} opakovani.".format(count))
+
     for item in duplicates:
+
         print("Prvok {} sa opakuje v liste {}krat".format(item, t.count(item)))
 
 druheCvicenie()

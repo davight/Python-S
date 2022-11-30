@@ -1,5 +1,5 @@
 # Cvicenia z labakov.
-# Den - 25.11.2022 ; Skupina - II
+# Den - 24.11.2022 ; Skupina - II
 
 # +++> Info:
 
@@ -59,7 +59,7 @@ def druhyPriklad():
         for cislo, text in obratene:
             print(f"{cislo + 1}. {text}")
 
-druhyPriklad()
+#druhyPriklad()
 
 # ++ Extra bonusove a extremne hnusne necitatelne zadanie:
 #   To iste co druhe cvicenie len s tym, ze vsetko bude
@@ -72,4 +72,4 @@ def nerobteTo():
     with open("C:\\Users\\PC\\Desktop\\cicky.txt") as subor:
         [ print(f"{cislo + 1}. {text}") for cislo, text in list(enumerate(subor.read().split("\n")))[::-1] ]
 
-nerobteTo()
+#nerobteTo()

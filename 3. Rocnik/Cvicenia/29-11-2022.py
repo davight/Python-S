@@ -15,7 +15,7 @@ def prveCvicenie():
     
     print(novyTuple)
 
-#prveCvicenie()
+prveCvicenie()
 
 def druheCvicenie():
     
@@ -31,64 +31,70 @@ def druheCvicenie():
     for index in range( 1, len( zakladnyTuple ) ):
         
         prItem, akItem = zakladnyTuple[index - 1], zakladnyTuple[index]
+        tempList = [prItem, akItem]
         
-        l =  [prItem, akItem]
-        
-        novyTuple += tuple(l),
+        novyTuple += tuple(tempList),
         
     print(novyTuple)
 
-#druheCvicenie()
+druheCvicenie()
 
 def tretieCvicenie():
     
     # Zadanie:
-    #  Nacitaj lubovolne slovo, vytvor tuple
-    #  s ich poziciami a indexami
-    
+    #  Nacitaj nejake slovo, vytvor tuple, ktore obsahuje
+    #  tuples, na ktorych je na prvej pozici poradie
+    #  pismena a na druhej samotne pismeno.
+    # Obmedzenia:
+    #  Pozicia zacne na 1
+
     listSlovo = list(input("Zadaj slovo:\n"))
     listSlovo.insert(0, 'x')
     
-    print( tuple( enumerate( listSlovo ) )[1:] )
+    print(
+        tuple(enumerate(listSlovo))[1:]
+           )
 
-#tretieCvicenie()
+tretieCvicenie()
 
 def stvrteCvicenie():
     
     # Zadanie:
-    #  Dva rovnako-velke tuples v jednom tuple
-    #  Treba scitat kazdu hodnotu z jednej s
-    #  tou druhou a do noveho tuple vypisat ich
-    #  vysledok.
+    #  Mas N rovnako-velkych tuple v jednom velkom tuple.
+    #  Treba scitat kazdu hodnotu z Ktej pozicie z kazdeho tuple
+    #  a ich vysledok vlozit do noveho tuple.
+
+    zoznamTuples = ((1, 2, 3), (3.4, 5.4, 8.9), (1, 1, 1))
+    dlzka = len(zoznamTuples[0])
     
-    tuples = ((1, 2, 2), (3.4, 5.4, 8.9))
-    dlzka = len(tuples[0])
-    novyTuple = tuple()
-    
-    for tupleCisla in tuples:
+    for aktTuple in zoznamTuples:
         
-        aktDlzka = len(tupleCisla)
-        
+        aktDlzka = len(aktTuple)
+
         if dlzka != aktDlzka:
             # Nie su rovnako dlhe!
             return print("Tuples nie su rovnako dlhe !")
-        
+
+
         dlzka = aktDlzka
-        
-        for i in range(dlzka):
+
+    novyTuple = tuple()
+
+    for index in range(dlzka):
             
-            scitanie = 0
-            for t in tuples:
-                print(t)
-                hodnota = t[i]
-                print(hodnota)
-                if isinstance(hodnota, int) or isinstance(hodnota, float):
-                    scitanie += hodnota
-                    continue
-                
-                return print("Nejaka hodnota v nejakom tuple nie je integer alebo float!")
+        count = 0
+        for aktTuple in zoznamTuples:
+
+            # Hodnota predstavuje aktualne hodnotu,
+            # cez ktoru prechadzame v aktualnom tuple.
+            hodnota = aktTuple[index]
+
+            if isinstance(hodnota, int) or isinstance(hodnota, float):
+                count += hodnota
+            else:
+                return print(f"Hodnota '{hodnota}' v tuple {aktTuple} nie je float alebo integer!")
         
-            novyTuple += scitanie,
+        novyTuple += count,
             
     print(novyTuple)
     
