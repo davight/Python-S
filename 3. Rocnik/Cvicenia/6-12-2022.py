@@ -34,36 +34,28 @@ def tretieCvicenie():
     import sys
 
     velkost = int(input("Zadaj velkost stvorcov: "))
+    pocet = int(input("Zadaj, kolko stvorcov chces: "))
 
     startx = starty = 20
     stvorce, count = {}, 0
 
-    #for _ in range(1, pocet + 1):
-    while True:
-       
+    for _ in range(1, pocet + 1):
+        
         if startx + velkost > 500:
             startx = 20
             starty += velkost
 
         if starty + velkost > 500:
-            print("Max stvorcov {} s velkostou {}.".format(count, velkost))
-            pocet = int(input("Zadaj, kolko stvorcov chces: "))
-            break
+            print("Max stvorcov {} so velkostou".format(count, velkost))
+            sys.exit() 
 
         suradnice = startx, starty, startx + velkost, starty + velkost
         farba = "white"
         stvorce[suradnice] = farba
+        tk.create_rectangle(suradnice)
         
         count += 1
         startx += velkost
-    
-    if pocet > count:
-        print("Privela stvorcov!")
-        sys.exit()
-    
-    for i in range(0, pocet):
-        sur = list(stvorce.keys())[i]
-        tk.create_rectangle(sur)
         
 
     def main(mouse):
