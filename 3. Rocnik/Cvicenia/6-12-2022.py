@@ -1,6 +1,6 @@
 import tkinter
 
-tk = tkinter.Canvas(width=500, height=500)
+tk = tkinter.Canvas(width=500, height=500, bg = "white")
 tk.pack()
 
 def prveCvicenie(mouse):
@@ -28,42 +28,76 @@ def druheCvicenie(mouse):
     tk.create_text(x, y, text=slovo[0])
     slovo.pop(0)
 
-stvorce = 9
-velkost = 50
 
-sury = 10
-start = 20
-l = []
+def tretieCvicenie():
 
-for x in range(start, velkost * stvorce, velkost):
-    suradnice = x, sury, x + velkost, sury + velkost
-    l.append(suradnice)
-    temp = tk.create_rectangle(suradnice)
+    import sys
 
-def tretieCvicenie(mouse):
+    velkost = int(input("Zadaj velkost stvorcov: "))
 
-    # Zadanie:
-    #  Do platna nakresli vedla seba 8 stvorcekov
-    #  vyfarbi ich pomocou kliku
+    startx = starty = 20
+    stvorce, count = {}, 0
 
-    x, y = mouse.x, mouse.y
+    #for _ in range(1, pocet + 1):
+    while True:
+       
+        if startx + velkost > 500:
+            startx = 20
+            starty += velkost
 
-    if y < sury or y > sury + velkost or x < start or x > start + 9 * velkost:
-        # Nic netrafil
-        return
+        if starty + velkost > 500:
+            print("Max stvorcov {} s velkostou {}.".format(count, velkost))
+            pocet = int(input("Zadaj, kolko stvorcov chces: "))
+            break
 
-    for stvorec in l:
-        startx, starty, endx, endy = suradnice[0], suradnice[1], suradnice[2], suradnice[3]
-        if startx >= x >= endx and starty >= y >= endy:
-            print("aaa")
+        suradnice = startx, starty, startx + velkost, starty + velkost
+        farba = "white"
+        stvorce[suradnice] = farba
+        
+        count += 1
+        startx += velkost
+    
+    if pocet > count:
+        print("Privela stvorcov!")
+        sys.exit()
+    
+    for i in range(0, pocet):
+        sur = list(stvorce.keys())[i]
+        tk.create_rectangle(sur)
+        
+
+    def main(mouse):
+
+        x, y = mouse.x, mouse.y
+
+        for stvorec in stvorce:
+            
+            farba = stvorce[stvorec]
+            startx, starty, endx, endy = stvorec[0], stvorec[1], stvorec[2], stvorec[3]
+
+            if startx <= x <= endx and starty <= y <= endy:
+                
+                newFarba = farby(farba)
+                tk.create_rectangle(startx, starty, endx, endy, fill=newFarba)
+                stvorce[stvorec] = newFarba
+
+    tk.bind("<Button-1>", main)
+
+    def farby(akt):
+        
+        colors = ["red", "blue", "green", "white"]
+        if akt not in colors:
+            return "white"
+
+        poz = colors.index(akt) + 1
+        if poz > len(colors) - 1:
+            return colors[0]
+        
+        return colors[poz]
 
 
-    # Trafil
+tretieCvicenie()
 
-
-
-
-tk.bind("<Button-1>", tretieCvicenie)
 #tk.bind("<Button-1>", prveCvicenie)
 #tk.bind("<Button-1>", druheCvicenie)
 
