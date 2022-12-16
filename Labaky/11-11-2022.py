@@ -7,8 +7,8 @@
 #   totalne jednoduche. Pre oddelenie staci na oboch stranach
 #   pouzit ',' separator.
 #   @ Priklad:
-#       a, b = 22667121, "Foo";
-#   ( Do variability 'a' sme vlozili integer 22667121 a do 'b' String "Foo". )
+#       a, b = 22667121, "Foo"
+#       ( Do variability 'a' sme vlozili integer 22667121 a do 'b' String "Foo". )
 #
 # - Pokial chceme do variability zadefinovat xy argumentov
 #   mozeme pouzit "*arg" parameter. Data budu vo variabilite
