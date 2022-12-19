@@ -80,9 +80,10 @@ def druhe_cvicenie():
                 if not are_integers(args): print("++ Expected integers."); continue
 
                 numbers = [int(i) for i in args]
-                cinitel = numbers[0]
+                odpoved = numbers[0]
                 for nasobok in numbers[1:]:
-                    cinitel *= nasobok
+                    odpoved *= nasobok
+                print(odpoved)
 
             case "delenie" | "/":
                 if len(args) < 2: print("++ Few arguments provided."); continue
