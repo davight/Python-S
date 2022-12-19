@@ -24,7 +24,7 @@
 #   Keep it simple, Jakub, Jakub!
 
 # Mozne riesenie:
-def prveCvicenie():
+def prve_cvicenie():
 
     a = 4239
     b = 12
@@ -32,7 +32,7 @@ def prveCvicenie():
 
     return print(f"Prehodene hodnoty: \n a = {a} \n b = {b}")
 
-prveCvicenie()
+prve_cvicenie()
 
 # ++ Zadanie k druehmu cviceniu:
 #    Napis parser s prikazmi: print / plus / minus
@@ -41,83 +41,72 @@ prveCvicenie()
 #    + minus: odcita vsetky argumenty od prveho
 
 # Mozne riesenie:
-def druheCvicenie():
+def druhe_cvicenie():
+
+    def are_integers(arr) -> bool:
+        try:
+            [int(i) for i in arr]
+            return True
+        except ValueError:
+            return False
 
     while True:
 
-        cmdArgs = input("> ").split()
-        while len(cmdArgs) < 1:
-            cmdArgs = input("> ").split()
+        cmd_args = input("> ").split()
+        while len(cmd_args) < 1: cmd_args = input("> ").split()
 
-        mainArg, args = cmdArgs[0], cmdArgs[1:]
-        match mainArg:
+        main_arg, *args = cmd_args
+        match main_arg:
 
             case "print":
-                if len(args) != 0:
-                    print( " ".join(args) )
-                else:
-                    print("++ Few arguments provided.")
+                if len(args) != 0: print( " ".join(args) )
+                else: print("++ Few arguments provided.")
 
             case "plus" | "+":
                 # Filip, nie, NECHCE sa mi robit to cez if elif
-                try:
-                    numbers = [ int(i) for i in args ]
-                    print( sum(numbers) )
-                except ValueError as error:
-                    print(f"++ Expected integers. \n Error: {error}")
-                except IndexError as error:
-                    print(f"++ Few arguments provided. \n Error: {error}")
+                if not are_integers(args): print("++ Expected integers."); continue
+
+                numbers = [int(i) for i in args]
+                print(sum(numbers))
 
             case "minus" | "-":
                 # Filip, nie, NECHCE sa mi robit to cez if elif
-                try:
-                    numbers = [ int(i) for i in args ]
-                    print( numbers[0] - sum(numbers[1:]) )
-                except ValueError as error:
-                    print(f"++ Expected integers. \n Error: {error}")
-                except IndexError as error:
-                    print(f"++ Few arguments provided. \n Error: {error}")
+                if len(args) < 2: print("++ Few arguments provided."); continue
+                if not are_integers(args): print("++ Expected integers."); continue
+
+                numbers = [int(i) for i in args]
+                print(numbers[0] - sum(numbers[1:]))
 
             case "nasobenie" | "*":
-                try:
-                    numbers = [ int(i) for i in args ]
-                    cinitel = numbers[0]
-                    for nasobok in numbers[1:]:
-                        cinitel *= nasobok
-                    print( cinitel )
-                except ValueError as error:
-                    print(f"++ Expected integers. \n Error: {error}")
-                except IndexError as error:
-                    print(f"++ Few arguments provided. \n Error: {error}")
+                if len(args) < 2: print("++ Few arguments provided."); continue
+                if not are_integers(args): print("++ Expected integers."); continue
+
+                numbers = [int(i) for i in args]
+                cinitel = numbers[0]
+                for nasobok in numbers[1:]:
+                    cinitel *= nasobok
 
             case "delenie" | "/":
-                try:
-                    numbers = [ int(i) for i in args ]
-                    delenec = numbers[0]
-                    for delitel in numbers[1:]:
-                        delenec /= delitel
-                    print( round(delenec, 2) )
-                except ValueError as error:
-                    print(f"++ Expected integers. \n Error: {error}")
-                except IndexError as error:
-                    print(f"++ Few arguments provided. \n Error: {error}")
-                except ZeroDivisionError as error:
-                    print(f"++ Division by zero is not possible. \n Error: {error}")
+                if len(args) < 2: print("++ Few arguments provided."); continue
+                if not are_integers(args): print("++ Expected integers."); continue
+
+                numbers = [int(i) for i in args]
+                delenec = numbers[0]
+                for delitel in numbers[1:]:
+                    if delitel == 0: print("++ Division by zero is not possible."); break
+                    delenec /= delitel
+                else: print(round(delenec, 2))
 
             case "faktorial" | "!":
-                if len(args) != 1:
-                    print(f"Invalid number of arguments provided.\n Required: 1")
-                else:
-                    try:
-                        cislo = odpoved = int(args[0])
-                        for i in range(1, cislo-1):
-                            odpoved *= cislo - i
-                        print(odpoved)
-                    except ValueError as error:
-                        print(f"++ Expected integer. \n Error: {error}")
+                if len(args) != 1: print("++ Expected 1 argument."); continue
+                if not are_integers(args): print("++ Expected integer."); continue
 
-            case "stop":
-                return
+                cislo = odpoved = int(args[0])
+                for i in range(1, cislo-1):
+                    odpoved *= cislo-i
+                print(odpoved)
+
+            case "stop": return
 
             case "help" | 'h' | "?":
                 print("++ Currently available commands: \n"
@@ -130,7 +119,6 @@ def druheCvicenie():
                       "stop\n"
                       "help")
 
-            case _:
-                print( f"++ Invalid command. \n Command: {mainArg}" )
+            case _: print( f"++ Invalid command. \n Command: {main_arg}" )
 
-druheCvicenie()
+druhe_cvicenie()
