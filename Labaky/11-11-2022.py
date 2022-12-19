@@ -59,18 +59,16 @@ def druhe_cvicenie():
         match main_arg:
 
             case "print":
-                if len(args) != 0: print( " ".join(args) )
+                if len(args) != 0: print( *args )
                 else: print("++ Few arguments provided.")
 
             case "plus" | "+":
-                # Filip, nie, NECHCE sa mi robit to cez if elif
                 if not are_integers(args): print("++ Expected integers."); continue
 
                 numbers = [int(i) for i in args]
                 print(sum(numbers))
 
             case "minus" | "-":
-                # Filip, nie, NECHCE sa mi robit to cez if elif
                 if len(args) < 2: print("++ Few arguments provided."); continue
                 if not are_integers(args): print("++ Expected integers."); continue
 
