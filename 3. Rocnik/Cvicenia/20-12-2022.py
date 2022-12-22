@@ -38,7 +38,7 @@ def druhe_cvicenie():
     usporiadane = []
 
     for cifra in deduplicate(vstup.split()):
-        if len(cifra) > 1: return print("Niesmie byt vacsie ako 9 !")
+        if len(cifra) > 1: return print("Nesmie byt vacsie ako 9!")
         usporiadane.extend(cifra * int(vstup.count(cifra)))
     print(", ".join(usporiadane))
 
