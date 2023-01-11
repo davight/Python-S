@@ -40,10 +40,41 @@ def prve_cvicenie(x: int, y: int) -> None:
     else:
         # Pravy dolny roh
         ca.itemconfig("cerveny_stvorec", fill="pink")
-    
+
+suradnice = 100, 100, 200, 150
+ca.create_line(suradnice, tags="line")
+
+def druhe_cvicenie(x: int, y: int) -> None:
+    global suradnice
+    suradnice = list(suradnice)
+    suradnice.extend([x, y])
+    ca.coords('line', tuple(suradnice))
+
+def tretie_cvicenie(x: int, y: int) -> None:
+    ca.create_oval(x - 5, y - 5, x + 5, y + 5, fill="black")
+
+cords = []
+def stvrte_cvicenie_klik(x, y):
+    global line, cords
+    cords = [x, y]
+    line = ca.create_line(0, 0, 0, 0, width=4)
+
+def stvrte_cvicenie_motion(x, y):
+    cords.extend([x, y])
+    ca.coords(line, cords)
 
 def click(mouse):
-    prve_cvicenie(mouse.x, mouse.y)
+    #prve_cvicenie(mouse.x, mouse.y)
+    #druhe_cvicenie(mouse.x, mouse.y)
+    stvrte_cvicenie_klik(mouse.x, mouse.y)
+    pass
+
+def move(mouse):
+    #tretie_cvicenie(mouse.x, mouse.y)
+    stvrte_cvicenie_motion(mouse.x, mouse.y)
 
 ca.bind("<Button-1>", click)
+ca.bind("<B1-Motion>", move)
 tkinter.mainloop()
+
+
