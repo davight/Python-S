@@ -1,6 +1,8 @@
 # Cvicenia z labakov.
 # Den - 11.11.2022 ; Skupina - II
 
+from miscellaneous_functions import are_integers
+
 # +++> Info:
 #
 # - V pythone definovanie viacerych variabilit SUCASNE je
@@ -43,20 +45,13 @@ prve_cvicenie()
 # Mozne riesenie:
 def druhe_cvicenie():
 
-    def are_integers(arr) -> bool:
-        try:
-            [int(i) for i in arr]
-            return True
-        except ValueError:
-            return False
-
     while True:
 
         cmd_args = input("> ").split()
         while len(cmd_args) < 1: cmd_args = input("> ").split()
 
-        main_arg, *args = cmd_args
-        match main_arg:
+        command, *args = cmd_args
+        match command:
 
             case "print":
                 if len(args) != 0: print( *args )
@@ -118,6 +113,6 @@ def druhe_cvicenie():
                       "stop\n"
                       "help")
 
-            case _: print( f"++ Invalid command. \n Command: {main_arg}" )
+            case _: print( f"++ Invalid command. \n Command: {command}" )
 
 druhe_cvicenie()
