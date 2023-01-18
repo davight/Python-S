@@ -9,16 +9,13 @@ ca.pack()
 
 suradnice_move = None
 line = ca.create_line(0, 0, 0, 0)
-suradnice_click = []
 
 def click(m):
-    global suradnice_move, suradnice_click, line
-    
+    global suradnice_move, line
+
     suradnice_move = m.x, m.y
     line = ca.create_line(0, 0, 0, 0)
-    suradnice_click.extend([suradnice_move])
-    ca.coords(suradnice_click)
-
+    
 def move(m):
     global suradnice_move, line
     
