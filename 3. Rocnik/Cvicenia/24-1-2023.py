@@ -21,31 +21,21 @@ def klik(key):
 
     ca.coords("line", sur)
 
-ca.bind_all("<Key>", klik)
-tk.mainloop()
+#ca.bind_all("<Key>", klik)
 
-
-import tkinter as tk
-
-root = tk.Tk()
-root.title("Mittens vracia uder")
-canvas = tk.Canvas(root, width=500, height=500, bg="silver")
-canvas.pack()
 
 #Zadanie: importni random png subor do platna a nech sa hybe wasd.
-obr = tk.PhotoImage(file = "notmiguel.png")
-canvas.create_image(250, 250, image = obr, tags = "gato")
-move = 20
+obr, move = tk.PhotoImage(file = "notmiguel.png"), 10
+ca.create_image(250, 250, image = obr, tags = "gato")
 
-def kiten(event):
-    if event.keysym == "Right":
-        canvas.move("gato", move, 0)
-    elif event.keysym == "Left":
-        canvas.move("gato", -move, 0)
-    elif event.keysym == "Up":
-        canvas.move("gato", 0, -move)
-    elif event.keysym == "Down":
-        canvas.move("gato", 0, move)
+def kiten(key):
+    name = key.keysym
 
-canvas.bind_all("<Key>", kiten)
-canvas.mainloop()
+    match name:
+        case "Right": ca.move("gato", move, 0)
+        case "Left":  ca.move("gato", -move, 0)
+        case "Up":    ca.move("gato", 0, -move)
+        case "Down":  ca.move("gato", 0, move)
+
+ca.bind_all("<Key>", kiten)
+ca.mainloop()
