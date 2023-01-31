@@ -33,6 +33,6 @@ while not vyhral:
         if ca.coords(tag)[0] >= Nastavenia.ciel:
             ca.create_text(400, 100, font="Arial 25 bold", text=f"Vyhralo {tag.replace('_car', '')} auto")
             vyhral = True; break
-    ca.after(100); ca.update()
+    ca.after(Nastavenia.update_rychlost); ca.update()
 
 tk.mainloop()
