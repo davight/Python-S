@@ -32,7 +32,9 @@ def prve_cvicenie():
     b = 12
     a, b = b, a
 
-    return print(f"Prehodene hodnoty: \n a = {a} \n b = {b}")
+    return print("Prehodene hodnoty:\n"
+                 f"a = {a}\n"
+                 f"b = {b}")
 
 prve_cvicenie()
 
