@@ -7,7 +7,8 @@
 def are_integers(arr) -> bool:
     if not isinstance(arr, list): return False
     try:
-        [int(i) for i in arr]
-        return True
+        for i in arr: int(i)
     except ValueError:
         return False
+    else:
+        return True
